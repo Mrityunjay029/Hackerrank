@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Solution {
+    static boolean isAnagram(String a, String b) {
+        a = a.toLowerCase();
+        b = b.toLowerCase();
+        int count1[] = new int[26];
+        int count2[] = new int[26];
+        String s = "abcdefghijklmnopqrstuvwxyz";
+        int index = 0;
+        if(a.length() == b.length()){
+        for (int i = 0; i < a.length(); i++) {
+            index = s.indexOf(a.charAt(i));
+            count1[index]++;
+            index = s.indexOf(b.charAt(i));
+            count2[index]++;
+        }
+        for (int i = 0; i < 26; i++) {
+            if (count1[i] != count2[i]) 
+                return false;
+        }
+        return true;
+        }
+        else{
+            return false;
+        }
+    }
