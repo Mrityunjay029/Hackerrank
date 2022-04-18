@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String s = scan.nextLine();
+        char Charr[] = s.toCharArray();
+        int length = 0;
+        int count=0;
+        String words = "";
+        String word[] = new String[100];
+        for(int i=0;i<s.length();i++){
+            char temp = Charr[i];
+            if(temp >= 65 && temp <= 90 || temp >= 97 && temp <= 122){
+                words = words + Charr[i];
+            }
+            else{
+                word[length] = words;
+                length++;
+                words = "";
+            }
+        }
+        count = length - 1;
+        System.out.println(count);
+        for(int i=0;i<length;i++){
+            if(word[i] != "")
+            System.out.println(word[i]);
+        }
+        scan.close();
+    }
+}
